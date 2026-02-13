@@ -5,18 +5,19 @@
   <title>Yishen Song - Academic Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Personal academic homepage of Dr. Yishen Song, PhD Student at Beijing Normal University">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #003366;
-      --secondary-color: #004080;
-      --accent-color: #4a86e8;
-      --text-color: #333;
-      --light-bg: #f5f5f5;
-      --card-bg: #ffffff;
-      --shadow: 0 4px 12px rgba(0,0,0,0.08);
-      --border-radius: 10px;
-      --transition: all 0.3s ease;
+      --bg-primary: #ffffff;
+      --bg-secondary: #fafafa;
+      --text-primary: #111111;
+      --text-secondary: #666666;
+      --text-tertiary: #999999;
+      --border: #eeeeee;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
     }
 
     * {
@@ -26,325 +27,373 @@
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
       line-height: 1.6;
-      background: var(--light-bg);
-      color: var(--text-color);
-      overflow-x: hidden;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
     }
 
     .container {
-      width: 100%;
-      max-width: 1200px;
+      max-width: 680px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 24px;
     }
 
-    /* Header Styles */
+    /* Header */
     header {
-      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-      color: white;
-      padding: 2.5rem 1rem;
-      position: relative;
-      overflow: hidden;
+      padding: 80px 0 40px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .header-content {
+    .profile-section {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
-
-    .profile-container {
-      position: relative;
-      margin-bottom: 1.5rem;
+      align-items: flex-start;
+      gap: 32px;
     }
 
     .profile-img {
-      width: 180px;
-      height: 180px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      box-shadow: var(--shadow);
-      transition: var(--transition);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
     }
 
-    .profile-img:hover {
-      transform: scale(1.03);
+    .profile-info h1 {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
     }
 
-    .header-text {
-      max-width: 800px;
+    .profile-info .title {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
+    .profile-info .institution {
+      font-size: 14px;
+      color: var(--text-tertiary);
+      margin-bottom: 16px;
     }
 
-    .title {
-      font-size: 1.3rem;
-      margin-bottom: 0.3rem;
-      color: rgba(255, 255, 255, 0.9);
+    .cv-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--text-primary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: all 0.2s;
     }
 
-    .institution {
-      font-style: italic;
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 1rem;
+    .cv-link:hover {
+      border-color: var(--text-primary);
     }
 
     /* Navigation */
     nav {
-      background-color: var(--secondary-color);
-      padding: 0.8rem 0;
       position: sticky;
       top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
       z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 16px 0;
     }
 
-    .nav-container {
+    .nav-links {
       display: flex;
-      justify-content: center;
+      gap: 32px;
     }
 
     nav a {
-      color: white;
-      margin: 0 1.2rem;
+      font-size: 14px;
+      color: var(--text-secondary);
       text-decoration: none;
+      transition: color 0.2s;
       font-weight: 500;
-      transition: var(--transition);
-      position: relative;
-      padding: 0.5rem 0;
     }
 
-    nav a:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: white;
-      transition: var(--transition);
-    }
-
-    nav a:hover:after {
-      width: 100%;
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: white;
-      font-size: 1.5rem;
-      cursor: pointer;
+    nav a:hover {
+      color: var(--text-primary);
     }
 
     /* Main Content */
     main {
-      padding: 3rem 0;
+      padding: 48px 0 80px;
     }
 
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
-      padding: 2rem;
-      margin-bottom: 2.5rem;
-      transition: var(--transition);
+    section {
+      margin-bottom: 48px;
     }
 
-    .card:hover {
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-      transform: translateY(-3px);
+    section:last-child {
+      margin-bottom: 0;
     }
 
     h2 {
-      color: var(--primary-color);
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--accent-color);
-      font-size: 1.8rem;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-tertiary);
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    /* Lists */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 8px;
+      font-size: 16px;
+      color: var(--text-secondary);
+    }
+
+    li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--text-tertiary);
     }
 
     /* Publications */
-    .publication-item {
-      margin-bottom: 1.2rem;
-      padding-bottom: 1.2rem;
-      border-bottom: 1px solid #eee;
+    .publication {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .publication-item:last-child {
+    .publication:first-child {
+      padding-top: 0;
+    }
+
+    .publication:last-child {
       border-bottom: none;
-      margin-bottom: 0;
       padding-bottom: 0;
     }
 
     .pub-title {
-      font-weight: 600;
-      margin-bottom: 0.3rem;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      line-height: 1.5;
     }
 
-    .pub-authors {
-      color: #555;
-      margin-bottom: 0.3rem;
+    .pub-meta {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 4px;
     }
 
     .pub-journal {
-      font-style: italic;
-      color: #666;
-      margin-bottom: 0.3rem;
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
     }
 
-    /* Social Links */
+    .pub-link {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* Projects */
+    .project-card {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .project-icon {
+      width: 40px;
+      height: 40px;
+      background: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .project-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .project-link {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* Contact */
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+
+    .contact-icon {
+      width: 20px;
+      color: var(--text-tertiary);
+    }
+
     .social-links {
       display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
+      gap: 16px;
+      margin-top: 24px;
     }
 
     .social-link {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: var(--primary-color);
-      color: white;
-      transition: var(--transition);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.2s;
     }
 
     .social-link:hover {
-      background: var(--accent-color);
-      transform: translateY(-3px);
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+      transform: translateY(-2px);
     }
 
     /* Footer */
     footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
       text-align: center;
-      padding: 2rem 1rem;
-      background: var(--primary-color);
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.9rem;
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .header-content {
-        flex-direction: column;
-        text-align: center;
+    footer p {
+      font-size: 13px;
+      color: var(--text-tertiary);
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        padding: 60px 0 32px;
       }
-      
-      .profile-img {
-        width: 150px;
-        height: 150px;
-        margin-bottom: 1.5rem;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-      
-      .title {
-        font-size: 1.1rem;
-      }
-      
-      .nav-container {
+
+      .profile-section {
         flex-direction: column;
         align-items: center;
-        display: none;
+        text-align: center;
       }
-      
-      .nav-container.active {
-        display: flex;
-      }
-      
-      nav a {
-        margin: 0.5rem 0;
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 15px;
-      }
-      
-      .card {
-        padding: 1.5rem;
-      }
-    }
 
-    @media (max-width: 480px) {
       .profile-img {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
       }
-      
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      h2 {
-        font-size: 1.5rem;
-      }
-      
-      .card {
-        padding: 1.2rem;
-      }
-    }
 
-    /* Animation */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      .profile-info h1 {
+        font-size: 28px;
+      }
+
+      .nav-links {
+        gap: 20px;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      nav a {
+        white-space: nowrap;
+        font-size: 13px;
+      }
+
+      main {
+        padding: 32px 0 60px;
+      }
+
+      section {
+        margin-bottom: 40px;
+      }
     }
-    
-    .card {
-      animation: fadeIn 0.5s ease-out forwards;
-    }
-    
-    .card:nth-child(1) { animation-delay: 0.1s; }
-    .card:nth-child(2) { animation-delay: 0.2s; }
-    .card:nth-child(3) { animation-delay: 0.3s; }
-    .card:nth-child(4) { animation-delay: 0.4s; }
-    .card:nth-child(5) { animation-delay: 0.5s; }
   </style>
+<base target="_blank">
 </head>
 
 <body>
   <header>
     <div class="container">
-      <div class="header-content">
-        <div class="profile-container">
-          <img src="avatar.jpg" alt="Yishen Song" class="profile-img">
-        </div>
-        <div class="header-text">
+      <div class="profile-section">
+        <img src="avatar.jpg" alt="Yishen Song" class="profile-img">
+        <div class="profile-info">
           <h1>Yishen Song</h1>
           <p class="title">PhD Student</p>
           <p class="institution">School of Educational Technology, Beijing Normal University</p>
-          <a href="Yishen_CV.pdf" style="color:white" target="_blank">Download CV</a>
+          <a href="Yishen_CV.pdf" class="cv-link" target="_blank">
+            <span>Download CV</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+          </a>
         </div>
-
       </div>
     </div>
   </header>
 
   <nav>
     <div class="container">
-      <button class="mobile-menu-btn" id="menuToggle">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="nav-container" id="navContainer">
+      <div class="nav-links">
         <a href="#about">About</a>
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
@@ -355,14 +404,14 @@
   </nav>
 
   <main class="container">
-    <section id="about" class="card">
-      <h2>About Me</h2>
+    <section id="about">
+      <h2>About</h2>
       <p>
-        I am a PhD student in the School of Educational Technology at Beijing Normal University [<a href="https://cit.bnu.edu.cn/english/" target="_blank">Our Lab</a>]. My research focuses on Artificial Intelligence in Education (AIEd) and Computerized Adaptive Testing (CAT). Since <em title="Chinese Proverb :)">"every child born has innate goodness"</em>, no matter how technology develops, I believe that technology will always be beneficial to education.
+        I am a PhD student in the School of Educational Technology at Beijing Normal University [<a href="https://cit.bnu.edu.cn/english/" target="_blank">Our Lab</a>]. My research focuses on Artificial Intelligence in Education (AIEd) and Computerized Adaptive Testing (CAT). Since <em title="Chinese Proverb :)" style="font-style: italic; color: var(--text-primary);">"every child born has innate goodness"</em>, no matter how technology develops, I believe that technology will always be beneficial to education.
       </p>
     </section>
 
-    <section id="research" class="card">
+    <section id="research">
       <h2>Research Interests</h2>
       <ul>
         <li>Automatic Item Generation</li>
@@ -371,46 +420,89 @@
       </ul>
     </section>
 
-    <section id="publications" class="card">
+    <section id="publications">
       <h2>Publications</h2>
-      <div class="publication-item">
-        <p class="pub-title">Automatic item generation for educational assessments: a systematic literature review</p>
-        <p class="pub-authors">Yishen Song, Junlei Du, Qinhua Zheng</p>
-        <p class="pub-journal">Interactive Learning Environments, 2025</p>
-        <a href="https://doi.org/10.1080/10494820.2025.2482588" target="_blank">DOI</a>
+
+      <div class="publication">
+        <div class="pub-title">Multi-agent automated item generation based on large language models</div>
+        <div class="pub-meta">Yishen Song, Hanya Li, Qinhua Zheng</div>
+        <div class="pub-journal">Educational Technology & Society, 2026</div>
+        <a href="https://www.researchgate.net/publication/400748479_Multi-agent_automated_item_generation_based_on_large_language_models" class="pub-link" target="_blank">View Paper →</a>
       </div>
-      
-      <div class="publication-item">
-        <p class="pub-title">Measuring scientific inquiry ability related to hands-on practice: an automated approach based on multimodal data analysis</p>
-        <p class="pub-authors">Yishen Song, Liming Guo, Qinhua Zheng</p>
-        <p class="pub-journal">Education and Information Technologies, 2025</p>
-        <a href="https://doi.org/10.1007/s10639-024-12991-7" target="_blank">DOI</a>
+
+      <div class="publication">
+        <div class="pub-title">LLM-Simulated Nonequivalent Groups with Anchor Test: A Novel Approach for Test Equating in the Absence of Traditional Anchor Items</div>
+        <div class="pub-meta">Junlei Du, Yishen Song, Qinhua Zheng</div>
+        <div class="pub-journal">IEEE Transactions on Learning Technologies, 2026</div>
+        <a href="https://doi.org/10.1109/TLT.2026.3661154" class="pub-link" target="_blank">View Paper →</a>
       </div>
-      
-      <div class="publication-item">
-        <p class="pub-title">Automated essay scoring and revising based on open-source large language models</p>
-        <p class="pub-authors">Yishen Song, Qianta Zhu, Huaibo Wang, Qinhua Zheng</p>
-        <p class="pub-journal">IEEE Transactions on Learning Technologies, 2024</p>
-        <a href="https://doi.org/10.1109/TLT.2024.3396873" target="_blank">DOI</a>
+
+      <div class="publication">
+        <div class="pub-title">CoScore: an LLM-Empowered Human-AI Collaborative Text Scoring Rule Generation and Calculation Engine</div>
+        <div class="pub-meta">Yishen Song</div>
+        <div class="pub-journal">IEEE International Conference on Teaching, Assessment, and Learning for Engineering (TALE), 2025</div>
+        <a href="https://doi.org/10.1109/TALE66047.2025.11346772" class="pub-link" target="_blank">View Paper →</a>
+      </div>
+
+      <div class="publication">
+        <div class="pub-title">Automatic item generation for educational assessments: a systematic literature review</div>
+        <div class="pub-meta">Yishen Song, Junlei Du, Qinhua Zheng</div>
+        <div class="pub-journal">Interactive Learning Environments, 2025</div>
+        <a href="https://doi.org/10.1080/10494820.2025.2482588" class="pub-link" target="_blank">View Paper →</a>
+      </div>
+
+      <div class="publication">
+        <div class="pub-title">Measuring scientific inquiry ability related to hands-on practice: an automated approach based on multimodal data analysis</div>
+        <div class="pub-meta">Yishen Song, Liming Guo, Qinhua Zheng</div>
+        <div class="pub-journal">Education and Information Technologies, 2025</div>
+        <a href="https://doi.org/10.1007/s10639-024-12991-7" class="pub-link" target="_blank">View Paper →</a>
+      </div>
+
+      <div class="publication">
+        <div class="pub-title">Automated essay scoring and revising based on open-source large language models</div>
+        <div class="pub-meta">Yishen Song, Qianta Zhu, Huaibo Wang, Qinhua Zheng</div>
+        <div class="pub-journal">IEEE Transactions on Learning Technologies, 2024</div>
+        <a href="https://doi.org/10.1109/TLT.2024.3396873" class="pub-link" target="_blank">View Paper →</a>
       </div>
     </section>
 
-    <section id="projects" class="card">
+    <section id="projects">
       <h2>Projects</h2>
-      <p><strong>MixIO</strong> - an education-first open-source IoT platform [<a href="https://gitee.com/mixly2/mixio" target="_blank">Gitee Repo</a>] [<a href="https://mixio.mixly.cn" target="_blank">Official Server</a>]</p>
-      <p>I'm proud to share that MixIO began in 2020 as my undergraduate "Computer Networks" course project and has, under our continuous contribution, grown into the open-source, education-first IoT platform you see today. The official server has around 1,000 active users per month. In addition, many primary and secondary school teachers in China have deployed our open-source server in their schools as a solution for the IoT section in information technology courses.</p>
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-icon">⚡</div>
+          <div class="project-title">MixIO</div>
+        </div>
+        <p style="font-size: 15px; margin: 0;">
+          An education-first open-source IoT platform. Started in 2020 as my undergraduate "Computer Networks" course project, now serving ~1,000 monthly active users. Widely deployed in Chinese primary and secondary schools for IoT education.
+        </p>
+        <div class="project-links">
+          <a href="https://gitee.com/mixly2/mixio" class="project-link" target="_blank">Gitee →</a>
+          <a href="https://mixio.mixly.cn" class="project-link" target="_blank">Official Server →</a>
+        </div>
+      </div>
     </section>
 
-    <section id="contact" class="card">
+    <section id="contact">
       <h2>Contact</h2>
-      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:songyishen@outlook.com">songyishen@outlook.com</a></p>
-      
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        <a href="mailto:songyishen@outlook.com">songyishen@outlook.com</a>
+      </div>
+
       <div class="social-links">
-        <a href="https://scholar.google.com/citations?user=kIpbSSMAAAAJ" target="_blank" class="social-link">
-          <i class="fab fa-google"></i>
+        <a href="https://scholar.google.com/citations?user=kIpbSSMAAAAJ" class="social-link" target="_blank" title="Google Scholar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5 12 0Z"/>
+          </svg>
         </a>
-        <a href="https://www.researchgate.net/profile/Yishen-Song-2" target="_blank" class="social-link">
-          <i class="fab fa-researchgate"></i>
+        <a href="https://www.researchgate.net/profile/Yishen-Song-2" class="social-link" target="_blank" title="ResearchGate">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M0 0h24v24H0V0zm7.541 7.625c-.1-.079-.229-.187-.436-.187-.207 0-.336.108-.436.187-.1.079-.229.187-.436.187-.207 0-.336-.108-.436-.187-.1-.079-.229-.187-.436-.187-.207 0-.336.108-.436.187-.1.079-.229.187-.436.187-.207 0-.336-.108-.436-.187-.1-.079-.229-.187-.436-.187-.207 0-.336.108-.436.187-.1.079-.229.187-.436.187-.207 0-.336-.108-.436-.187-.1-.079-.229-.187-.436-.187v12.75c.207 0 .336.108.436.187.1.079.229.187.436.187.207 0 .336-.108.436-.187.1-.079.229-.187.436-.187.207 0 .336.108.436.187.1.079.229.187.436.187.207 0 .336-.108.436-.187.1-.079.229-.187.436-.187.207 0 .336.108.436.187.1.079.229.187.436.187.207 0 .336-.108.436-.187.1-.079.229-.187.436-.187.207 0 .336.108.436.187.1.079.229.187.436.187.207 0 .336-.108.436-.187.1-.079.229-.187.436-.187V7.625z"/>
+          </svg>
         </a>
       </div>
     </section>
@@ -418,47 +510,23 @@
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Yishen Song. Last updated: July 2025.</p>
+      <p>© 2025 Yishen Song · Last updated July 2025</p>
     </div>
   </footer>
 
   <script>
-    // Mobile menu toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navContainer = document.getElementById('navContainer');
-    
-    menuToggle.addEventListener('click', () => {
-      navContainer.classList.toggle('active');
-      
-      // Change icon based on menu state
-      const icon = menuToggle.querySelector('i');
-      if (navContainer.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
-    
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        window.scrollTo({
-          top: targetElement.offsetTop - 60,
-          behavior: 'smooth'
-        });
-        
-        // Close mobile menu after clicking a link
-        if (navContainer.classList.contains('active')) {
-          navContainer.classList.remove('active');
-          menuToggle.querySelector('i').classList.remove('fa-times');
-          menuToggle.querySelector('i').classList.add('fa-bars');
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          const offset = 80;
+          const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
         }
       });
     });
