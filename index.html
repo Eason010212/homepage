@@ -2,24 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Yishen Song - Academic Homepage</title>
+  <title>Yishen Song · Academic Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal academic homepage of Dr. Yishen Song, PhD Student at Beijing Normal University">
+  <meta name="description" content="Personal academic homepage of Dr. Yishen Song, PhD Candidate at Beijing Normal University – AI in Education, Automatic Item Generation, Knowledge Tracing">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg-primary: #ffffff;
-      --bg-secondary: #fafafa;
-      --text-primary: #111111;
-      --text-secondary: #666666;
-      --text-tertiary: #999999;
-      --border: #eeeeee;
-      --accent: #2563eb;
-      --accent-hover: #1d4ed8;
-    }
-
     * {
       margin: 0;
       padding: 0;
@@ -28,11 +17,16 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
+      background: #ffffff;
+      color: #111111;
       line-height: 1.6;
       font-weight: 400;
       -webkit-font-smoothing: antialiased;
+    }
+
+    /* subtle transitions for all interactive elements */
+    a, button, .cv-link, .pub-link, .social-link, .project-card, nav a {
+      transition: all 0.2s ease-in-out;
     }
 
     .container {
@@ -44,7 +38,7 @@
     /* Header */
     header {
       padding: 80px 0 40px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #eeeeee;
     }
 
     .profile-section {
@@ -58,8 +52,13 @@
       height: 120px;
       border-radius: 50%;
       object-fit: cover;
-      border: 1px solid var(--border);
+      border: 1px solid #eeeeee;
       flex-shrink: 0;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .profile-img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
 
     .profile-info h1 {
@@ -71,13 +70,13 @@
 
     .profile-info .title {
       font-size: 16px;
-      color: var(--text-secondary);
+      color: #666666;
       margin-bottom: 4px;
     }
 
     .profile-info .institution {
       font-size: 14px;
-      color: var(--text-tertiary);
+      color: #999999;
       margin-bottom: 16px;
     }
 
@@ -86,15 +85,17 @@
       align-items: center;
       gap: 6px;
       font-size: 14px;
-      color: var(--text-primary);
+      color: #111111;
       text-decoration: none;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #eeeeee;
       padding-bottom: 2px;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
 
     .cv-link:hover {
-      border-color: var(--text-primary);
+      border-color: #111111;
+      color: #2563eb;
+      transform: translateY(-1px);
     }
 
     /* Navigation */
@@ -103,7 +104,7 @@
       top: 0;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #eeeeee;
       z-index: 100;
       padding: 16px 0;
     }
@@ -115,14 +116,15 @@
 
     nav a {
       font-size: 14px;
-      color: var(--text-secondary);
+      color: #666666;
       text-decoration: none;
-      transition: color 0.2s;
       font-weight: 500;
+      transition: color 0.2s ease, transform 0.1s ease;
     }
 
     nav a:hover {
-      color: var(--text-primary);
+      color: #111111;
+      transform: translateY(-1px);
     }
 
     /* Main Content */
@@ -132,6 +134,7 @@
 
     section {
       margin-bottom: 48px;
+      scroll-margin-top: 80px;
     }
 
     section:last-child {
@@ -143,7 +146,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--text-tertiary);
+      color: #999999;
       margin-top: 20px;
       margin-bottom: 20px;
     }
@@ -151,7 +154,7 @@
     p {
       font-size: 16px;
       line-height: 1.7;
-      color: var(--text-secondary);
+      color: #666666;
       margin-bottom: 16px;
     }
 
@@ -160,13 +163,13 @@
     }
 
     a {
-      color: var(--accent);
+      color: #2563eb;
       text-decoration: none;
-      transition: color 0.2s;
+      transition: color 0.2s ease;
     }
 
     a:hover {
-      color: var(--accent-hover);
+      color: #1d4ed8;
     }
 
     /* Lists */
@@ -180,26 +183,50 @@
       padding-left: 16px;
       margin-bottom: 8px;
       font-size: 16px;
-      color: var(--text-secondary);
+      color: #666666;
+      transition: transform 0.1s ease;
+    }
+    li:hover {
+      transform: translateX(2px);
     }
 
     li::before {
       content: "—";
       position: absolute;
       left: 0;
-      color: var(--text-tertiary);
+      color: #999999;
     }
 
-    /* Publications */
+    /* Publications - Journal / Conference separation */
+    .pub-section {
+      margin-top: 8px;
+    }
+    .pub-category {
+      font-size: 13px;
+      font-weight: 600;
+      color: #555555;
+      margin: 24px 0 12px 0;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #eeeeee;
+      letter-spacing: 0.3px;
+    }
+    .pub-category:first-of-type {
+      margin-top: 0;
+    }
+
     .publication {
-      padding: 24px 0;
-      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+      border-bottom: 1px solid #eeeeee;
+      transition: background 0.2s ease, padding-left 0.2s ease;
+    }
+    .publication:hover {
+      background: #fafafa;
+      padding-left: 8px;
     }
 
     .publication:first-child {
       padding-top: 0;
     }
-
     .publication:last-child {
       border-bottom: none;
       padding-bottom: 0;
@@ -208,34 +235,47 @@
     .pub-title {
       font-size: 16px;
       font-weight: 500;
-      color: var(--text-primary);
+      color: #111111;
       margin-bottom: 6px;
       line-height: 1.5;
     }
 
     .pub-meta {
       font-size: 14px;
-      color: var(--text-secondary);
+      color: #666666;
       margin-bottom: 4px;
     }
 
     .pub-journal {
       font-size: 13px;
-      color: var(--text-tertiary);
+      color: #999999;
       margin-bottom: 8px;
     }
 
     .pub-link {
       font-size: 13px;
       font-weight: 500;
+      display: inline-block;
+      transition: transform 0.15s ease, color 0.2s ease;
+    }
+    .pub-link:hover {
+      transform: translateX(3px);
+      color: #1d4ed8;
     }
 
     /* Projects */
     .project-card {
-      background: var(--bg-secondary);
+      background: #fafafa;
       border-radius: 12px;
       padding: 24px;
       margin-top: 16px;
+      border: 1px solid #eeeeee;
+      transition: all 0.25s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+      border-color: #e0e0e0;
     }
 
     .project-header {
@@ -254,13 +294,17 @@
       align-items: center;
       justify-content: center;
       font-size: 18px;
-      border: 1px solid var(--border);
+      border: 1px solid #eeeeee;
+      transition: transform 0.2s ease;
+    }
+    .project-card:hover .project-icon {
+      transform: scale(1.02);
     }
 
     .project-title {
       font-size: 18px;
       font-weight: 600;
-      color: var(--text-primary);
+      color: #111111;
     }
 
     .project-links {
@@ -272,6 +316,11 @@
     .project-link {
       font-size: 13px;
       font-weight: 500;
+      transition: transform 0.15s ease;
+      display: inline-block;
+    }
+    .project-link:hover {
+      transform: translateX(2px);
     }
 
     /* Contact */
@@ -281,12 +330,16 @@
       gap: 12px;
       margin-bottom: 12px;
       font-size: 15px;
-      color: var(--text-secondary);
+      color: #666666;
+      transition: transform 0.15s ease;
+    }
+    .contact-item:hover {
+      transform: translateX(3px);
     }
 
     .contact-icon {
       width: 20px;
-      color: var(--text-tertiary);
+      color: #999999;
     }
 
     .social-links {
@@ -303,29 +356,43 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
+      border: 1px solid #eeeeee;
+      color: #666666;
       text-decoration: none;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
 
     .social-link:hover {
-      border-color: var(--text-primary);
-      color: var(--text-primary);
-      transform: translateY(-2px);
+      border-color: #111111;
+      color: #111111;
+      transform: translateY(-3px);
     }
 
     /* Footer */
     footer {
       padding: 40px 0;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid #eeeeee;
       text-align: center;
     }
 
     footer p {
       font-size: 13px;
-      color: var(--text-tertiary);
+      color: #999999;
       margin: 0;
+    }
+
+    .stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #aaaaaa;
+    }
+    .stats-row span {
+      color: #666666;
+      font-weight: 500;
     }
 
     /* Responsive */
@@ -367,32 +434,37 @@
       section {
         margin-bottom: 40px;
       }
+      .publication:hover {
+        padding-left: 4px;
+      }
     }
   </style>
-<base target="_blank">
+  <base target="_blank">
 </head>
 
 <body>
   <header>
     <div class="container">
       <div class="profile-section">
-        <img src="avatar.png" alt="Yishen Song" class="profile-img">
+        <img src="avatar.png" alt="Yishen Song" class="profile-img" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?background=dddddd&color=111&name=Y.S.'">
         <div class="profile-info">
           <h1>Yishen Song</h1>
           <p class="title">PhD Student</p>
           <p class="institution">School of Educational Technology, Beijing Normal University</p>
-          <a href="Yishen_CV.pdf" class="cv-link" target="_blank" style="margin-right:10px">
-            <span>Download CV</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-          </a>
-          <a href="Yishen_CV_ZH.pdf" class="cv-link" target="_blank">
-            <span>Download CV (中文)</span>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 17L17 7M17 7H7M17 7V17"/>
-            </svg>
-          </a>
+          <div>
+            <a href="Yishen_CV.pdf" class="cv-link" target="_blank" style="margin-right:20px">
+              <span>Download CV</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </a>
+            <a href="Yishen_CV_ZH.pdf" class="cv-link" target="_blank">
+              <span>Download CV (中文)</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -414,7 +486,10 @@
     <section id="about">
       <h2>About</h2>
       <p>
-        I am a PhD student in the School of Educational Technology at Beijing Normal University [<a href="https://cit.bnu.edu.cn/english/" target="_blank">Our Lab</a>]. My research focuses on Artificial Intelligence in Education (AIEd) and Computerized Adaptive Testing (CAT). Since <em title="Chinese Proverb :)" style="font-style: italic; color: var(--text-primary);">"every child born has innate goodness"</em>, no matter how technology develops, I believe that technology will always be beneficial to education.
+        I am a PhD student in the School of Educational Technology at Beijing Normal University 
+        [<a href="https://cit.bnu.edu.cn/english/" target="_blank">Our Lab</a>]. My research focuses on Artificial Intelligence in Education (AIEd) and Computerized Adaptive Testing (CAT). 
+        Guided by the belief that <em style="font-style: italic; color:#111;">"every child born has innate goodness"</em>, no matter how technology evolves, 
+        I believe technology will always be beneficial to education when designed with care.
       </p>
     </section>
 
@@ -429,47 +504,74 @@
 
     <section id="publications">
       <h2>Publications</h2>
+      <div class="pub-section">
+        
+        <!-- Journal Papers -->
+        <div class="pub-category">Journal papers</div>
+        
+        <div class="publication">
+          <div class="pub-title">Multi-agent automated item generation based on large language models</div>
+          <div class="pub-meta">Yishen Song, Hanya Li, Qinhua Zheng</div>
+          <div class="pub-journal">Educational Technology & Society, 2026</div>
+          <a href="https://www.researchgate.net/publication/400748479_Multi-agent_automated_item_generation_based_on_large_language_models" class="pub-link" target="_blank">View Paper →</a>
+        </div>
 
-      <div class="publication">
-        <div class="pub-title">Multi-agent automated item generation based on large language models</div>
-        <div class="pub-meta">Yishen Song, Hanya Li, Qinhua Zheng</div>
-        <div class="pub-journal">Educational Technology & Society, 2026</div>
-        <a href="https://www.researchgate.net/publication/400748479_Multi-agent_automated_item_generation_based_on_large_language_models" class="pub-link" target="_blank">View Paper →</a>
-      </div>
+        <div class="publication">
+          <div class="pub-title">LLM-Simulated Nonequivalent Groups with Anchor Test: A Novel Approach for Test Equating in the Absence of Traditional Anchor Items</div>
+          <div class="pub-meta">Junlei Du, Yishen Song, Qinhua Zheng</div>
+          <div class="pub-journal">IEEE Transactions on Learning Technologies, 2026</div>
+          <a href="https://doi.org/10.1109/TLT.2026.3661154" class="pub-link" target="_blank">View Paper →</a>
+        </div>
 
-      <div class="publication">
-        <div class="pub-title">LLM-Simulated Nonequivalent Groups with Anchor Test: A Novel Approach for Test Equating in the Absence of Traditional Anchor Items</div>
-        <div class="pub-meta">Junlei Du, Yishen Song, Qinhua Zheng</div>
-        <div class="pub-journal">IEEE Transactions on Learning Technologies, 2026</div>
-        <a href="https://doi.org/10.1109/TLT.2026.3661154" class="pub-link" target="_blank">View Paper →</a>
-      </div>
+        <div class="publication">
+          <div class="pub-title">Automatic item generation for educational assessments: a systematic literature review</div>
+          <div class="pub-meta">Yishen Song, Junlei Du, Qinhua Zheng</div>
+          <div class="pub-journal">Interactive Learning Environments, 2025</div>
+          <a href="https://doi.org/10.1080/10494820.2025.2482588" class="pub-link" target="_blank">View Paper →</a>
+        </div>
 
-      <div class="publication">
-        <div class="pub-title">CoScore: an LLM-Empowered Human-AI Collaborative Text Scoring Rule Generation and Calculation Engine</div>
-        <div class="pub-meta">Yishen Song</div>
-        <div class="pub-journal">IEEE International Conference on Teaching, Assessment, and Learning for Engineering (TALE), 2025</div>
-        <a href="https://doi.org/10.1109/TALE66047.2025.11346772" class="pub-link" target="_blank">View Paper →</a>
-      </div>
+        <div class="publication">
+          <div class="pub-title">Measuring scientific inquiry ability related to hands-on practice: an automated approach based on multimodal data analysis</div>
+          <div class="pub-meta">Yishen Song, Liming Guo, Qinhua Zheng</div>
+          <div class="pub-journal">Education and Information Technologies, 2025</div>
+          <a href="https://doi.org/10.1007/s10639-024-12991-7" class="pub-link" target="_blank">View Paper →</a>
+        </div>
 
-      <div class="publication">
-        <div class="pub-title">Automatic item generation for educational assessments: a systematic literature review</div>
-        <div class="pub-meta">Yishen Song, Junlei Du, Qinhua Zheng</div>
-        <div class="pub-journal">Interactive Learning Environments, 2025</div>
-        <a href="https://doi.org/10.1080/10494820.2025.2482588" class="pub-link" target="_blank">View Paper →</a>
-      </div>
+        <div class="publication">
+          <div class="pub-title">Automated essay scoring and revising based on open-source large language models</div>
+          <div class="pub-meta">Yishen Song, Qianta Zhu, Huaibo Wang, Qinhua Zheng</div>
+          <div class="pub-journal">IEEE Transactions on Learning Technologies, 2024</div>
+          <a href="https://doi.org/10.1109/TLT.2024.3396873" class="pub-link" target="_blank">View Paper →</a>
+        </div>
 
-      <div class="publication">
-        <div class="pub-title">Measuring scientific inquiry ability related to hands-on practice: an automated approach based on multimodal data analysis</div>
-        <div class="pub-meta">Yishen Song, Liming Guo, Qinhua Zheng</div>
-        <div class="pub-journal">Education and Information Technologies, 2025</div>
-        <a href="https://doi.org/10.1007/s10639-024-12991-7" class="pub-link" target="_blank">View Paper →</a>
-      </div>
+        <!-- Conference Papers -->
+        <div class="pub-category">Conference papers</div>
 
-      <div class="publication">
-        <div class="pub-title">Automated essay scoring and revising based on open-source large language models</div>
-        <div class="pub-meta">Yishen Song, Qianta Zhu, Huaibo Wang, Qinhua Zheng</div>
-        <div class="pub-journal">IEEE Transactions on Learning Technologies, 2024</div>
-        <a href="https://doi.org/10.1109/TLT.2024.3396873" class="pub-link" target="_blank">View Paper →</a>
+
+        <!-- NEW: Hallucination-Centric Evaluation (Conference / Preprint) -->
+        <div class="publication">
+          <div class="pub-title">Can Large Language Models Generate Reliable Test Items? A Hallucination-Centric Evaluation</div>
+          <div class="pub-meta">Yishen Song, Qinhua Zheng</div>
+          <div class="pub-journal">AERA Annual Meeting, 2026</div>
+          <a href="https://www.researchgate.net/publication/403975916_Can_Large_Language_Models_Generate_Reliable_Test_Items_A_Hallucination-Centric_Evaluation" class="pub-link" target="_blank">View Paper →</a>
+        </div>
+
+        <!-- NEW: Automated Extraction of Computational Thinking Features -->
+        <div class="publication">
+          <div class="pub-title">Automated Extraction of Computational Thinking Features in Visual Programming Assessment</div>
+          <div class="pub-meta">Yishen Song</div>
+          <div class="pub-journal">AERA Annual Meeting, 2026</div>
+          <a href="https://www.researchgate.net/publication/403971410_Automated_Extraction_of_Computational_Thinking_Features_in_Visual_Programming_Assessment" class="pub-link" target="_blank">View Paper →</a>
+        </div>
+
+        <div class="publication">
+          <div class="pub-title">CoScore: an LLM-Empowered Human-AI Collaborative Text Scoring Rule Generation and Calculation Engine</div>
+          <div class="pub-meta">Yishen Song</div>
+          <div class="pub-journal">IEEE International Conference on Teaching, Assessment, and Learning for Engineering (TALE), 2025</div>
+          <a href="https://doi.org/10.1109/TALE66047.2025.11346772" class="pub-link" target="_blank">View Paper →</a>
+        </div>
+
+        
       </div>
     </section>
 
@@ -518,23 +620,25 @@
   <footer>
     <div class="container">
       <p>© 2026 Yishen Song · Last updated Feb 2026</p>
-    </div>
-    <script src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js" defer></script>
-    <div class="container">
-      <p>Today's views: <span id="busuanzi_today_pv">loading...</span></p>
-      <p>Today's visitors: <span id="busuanzi_today_uv">loading...</span></p>
-      <p>Total views: <span id="busuanzi_site_pv">loading...</span></p>
-      <p>Total visitors: <span id="busuanzi_site_uv">loading...</span></p>
+      <script src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js" defer></script>
+      <div class="stats-row">
+        <span>📖 Today's views: <span id="busuanzi_today_pv">loading...</span></span>
+        <span>👥 Today's visitors: <span id="busuanzi_today_uv">loading...</span></span>
+        <span>🌐 Total views: <span id="busuanzi_site_pv">loading...</span></span>
+        <span>✨ Total visitors: <span id="busuanzi_site_uv">loading...</span></span>
+      </div>
     </div>
   </footer>
 
   <script>
-    // Smooth scroll
+    // Smooth scroll with offset for sticky nav
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const targetId = this.getAttribute('href');
+        if (targetId === "#" || targetId === "") return;
+        const target = document.querySelector(targetId);
         if (target) {
+          e.preventDefault();
           const offset = 80;
           const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
           window.scrollTo({
@@ -544,6 +648,14 @@
         }
       });
     });
+    // Simple fallback for busuanzi if values remain empty
+    setTimeout(() => {
+      const ids = ['busuanzi_today_pv', 'busuanzi_today_uv', 'busuanzi_site_pv', 'busuanzi_site_uv'];
+      ids.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && (el.innerText === "loading..." || el.innerText === "")) el.innerText = "0";
+      });
+    }, 1500);
   </script>
 </body>
 </html>
