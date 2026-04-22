@@ -2,134 +2,200 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Yishen Song · Academic Homepage</title>
+  <title>Yishen Song</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Personal academic homepage of Dr. Yishen Song, PhD Candidate at Beijing Normal University – AI in Education, Automatic Item Generation, Knowledge Tracing">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #f0f0f0;
+      --bg-card: #ffffff;
+      --text: #1a1a1a;
+      --text-dim: #666666;
+      --accent: #ff6b35;
+      --accent2: #00b4d8;
+      --accent3: #2ec4b6;
+      --border: #1a1a1a;
+      --pixel-shadow: 4px 4px 0px var(--border);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #ffffff;
-      color: #111111;
-      line-height: 1.6;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
+      font-family: 'VT323', monospace;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      font-size: 20px;
+      -webkit-font-smoothing: none;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff6b35' stroke='%231a1a1a' stroke-width='2' d='M2 2l4 18 4-6 6 6 2-2-6-6 8-2z'/%3E%3C/svg%3E"), auto;
     }
 
-    /* subtle transitions for all interactive elements */
-    a, button, .cv-link, .pub-link, .social-link, .project-card, nav a {
-      transition: all 0.2s ease-in-out;
+    ::selection {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* 像素边框工具类 */
+    .pixel-box {
+      background: var(--bg-card);
+      border: 3px solid var(--border);
+      box-shadow: var(--pixel-shadow);
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .pixel-box:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px var(--border);
+    }
+    .pixel-box:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px var(--border);
     }
 
     .container {
-      max-width: 680px;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 20px;
     }
 
-    /* Header */
+    /* ===== HEADER ===== */
     header {
-      padding: 80px 0 40px;
-      border-bottom: 1px solid #eeeeee;
+      padding: 60px 0 30px;
     }
 
     .profile-section {
       display: flex;
       align-items: flex-start;
       gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      flex-shrink: 0;
     }
 
     .profile-img {
       width: 120px;
       height: 120px;
-      border-radius: 50%;
+      border: 3px solid var(--border);
+      box-shadow: var(--pixel-shadow);
       object-fit: cover;
-      border: 1px solid #eeeeee;
-      flex-shrink: 0;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      image-rendering: pixelated;
+      background: #ddd;
+      display: block;
     }
-    .profile-img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+
+    .avatar-badge {
+      position: absolute;
+      bottom: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: white;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      padding: 4px 6px;
+      border: 2px solid var(--border);
+      box-shadow: 2px 2px 0 var(--border);
+      white-space: nowrap;
     }
 
     .profile-info h1 {
-      font-size: 32px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      color: var(--text);
     }
 
     .profile-info .title {
-      font-size: 16px;
-      color: #666666;
+      font-size: 24px;
+      color: var(--text-dim);
       margin-bottom: 4px;
     }
 
     .profile-info .institution {
-      font-size: 14px;
-      color: #999999;
+      font-size: 20px;
+      color: var(--text-dim);
       margin-bottom: 16px;
     }
 
-    .cv-link {
+    .cv-btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      color: #111111;
+      gap: 8px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: var(--text);
       text-decoration: none;
-      border-bottom: 1px solid #eeeeee;
-      padding-bottom: 2px;
-      transition: all 0.2s ease;
+      background: var(--bg-card);
+      border: 3px solid var(--border);
+      box-shadow: var(--pixel-shadow);
+      padding: 10px 14px;
+      margin-right: 12px;
+      margin-bottom: 8px;
+      transition: all 0.1s;
+    }
+    .cv-btn:hover {
+      background: var(--accent);
+      color: white;
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px var(--border);
+    }
+    .cv-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px var(--border);
     }
 
-    .cv-link:hover {
-      border-color: #111111;
-      color: #2563eb;
-      transform: translateY(-1px);
-    }
-
-    /* Navigation */
+    /* ===== NAV ===== */
     nav {
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #eeeeee;
+      background: var(--bg);
+      border-bottom: 3px solid var(--border);
       z-index: 100;
       padding: 16px 0;
     }
 
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 8px;
+      flex-wrap: wrap;
     }
 
     nav a {
-      font-size: 14px;
-      color: #666666;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: var(--text);
       text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s ease, transform 0.1s ease;
+      background: var(--bg-card);
+      border: 3px solid var(--border);
+      box-shadow: 3px 3px 0px var(--border);
+      padding: 8px 12px;
+      transition: all 0.1s;
     }
-
     nav a:hover {
-      color: #111111;
-      transform: translateY(-1px);
+      background: var(--accent2);
+      color: white;
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0px var(--border);
+    }
+    nav a:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px var(--border);
     }
 
-    /* Main Content */
+    /* ===== MAIN ===== */
     main {
-      padding: 48px 0 80px;
+      padding: 40px 0 80px;
     }
 
     section {
@@ -137,42 +203,39 @@
       scroll-margin-top: 80px;
     }
 
-    section:last-child {
-      margin-bottom: 0;
-    }
-
     h2 {
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #999999;
-      margin-top: 20px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      color: var(--accent);
       margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2::before {
+      content: "▶";
+      color: var(--border);
     }
 
     p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: #666666;
+      font-size: 22px;
+      line-height: 1.6;
+      color: var(--text-dim);
       margin-bottom: 16px;
     }
 
-    p:last-child {
-      margin-bottom: 0;
-    }
-
     a {
-      color: #2563eb;
+      color: var(--accent2);
       text-decoration: none;
-      transition: color 0.2s ease;
+      border-bottom: 2px dotted var(--accent2);
+      transition: all 0.1s;
     }
-
     a:hover {
-      color: #1d4ed8;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
     }
 
-    /* Lists */
+    /* ===== LISTS ===== */
     ul {
       list-style: none;
       padding: 0;
@@ -180,102 +243,134 @@
 
     li {
       position: relative;
-      padding-left: 16px;
-      margin-bottom: 8px;
-      font-size: 16px;
-      color: #666666;
-      transition: transform 0.1s ease;
+      padding-left: 28px;
+      margin-bottom: 10px;
+      font-size: 22px;
+      color: var(--text-dim);
+      transition: transform 0.1s;
     }
     li:hover {
-      transform: translateX(2px);
+      transform: translateX(4px);
+      color: var(--text);
     }
-
     li::before {
-      content: "—";
+      content: "■";
       position: absolute;
       left: 0;
-      color: #999999;
+      color: var(--accent3);
+      font-size: 14px;
+      top: 2px;
     }
 
-    /* Publications - Journal / Conference separation */
-    .pub-section {
-      margin-top: 8px;
-    }
+    /* ===== PUBLICATIONS ===== */
     .pub-category {
-      font-size: 13px;
-      font-weight: 600;
-      color: #555555;
-      margin: 24px 0 12px 0;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #eeeeee;
-      letter-spacing: 0.3px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      color: var(--text);
+      margin: 28px 0 16px 0;
+      padding: 8px 12px;
+      background: var(--bg-card);
+      border: 3px solid var(--border);
+      box-shadow: var(--pixel-shadow);
+      display: inline-block;
     }
     .pub-category:first-of-type {
       margin-top: 0;
     }
 
     .publication {
-      padding: 20px 0;
-      border-bottom: 1px solid #eeeeee;
-      transition: background 0.2s ease, padding-left 0.2s ease;
+      padding: 20px;
+      margin-bottom: 16px;
+      background: var(--bg-card);
+      border: 3px solid var(--border);
+      box-shadow: var(--pixel-shadow);
+      transition: all 0.15s;
+      position: relative;
     }
     .publication:hover {
-      background: #fafafa;
-      padding-left: 8px;
+      transform: translate(-3px, -3px);
+      box-shadow: 7px 7px 0px var(--border);
     }
-
-    .publication:first-child {
-      padding-top: 0;
-    }
-    .publication:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+    .publication::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent) 8px,
+        transparent 8px,
+        transparent 16px
+      );
     }
 
     .pub-title {
-      font-size: 16px;
-      font-weight: 500;
-      color: #111111;
-      margin-bottom: 6px;
-      line-height: 1.5;
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.4;
     }
 
     .pub-meta {
-      font-size: 14px;
-      color: #666666;
+      font-size: 20px;
+      color: var(--text-dim);
       margin-bottom: 4px;
     }
 
     .pub-journal {
-      font-size: 13px;
-      color: #999999;
-      margin-bottom: 8px;
+      font-size: 18px;
+      color: #999;
+      margin-bottom: 12px;
+      font-style: italic;
     }
 
     .pub-link {
-      font-size: 13px;
-      font-weight: 500;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--text);
+      text-decoration: none;
+      border: 2px solid var(--border);
+      padding: 6px 10px;
       display: inline-block;
-      transition: transform 0.15s ease, color 0.2s ease;
+      box-shadow: 2px 2px 0 var(--border);
+      background: var(--bg);
+      transition: all 0.1s;
     }
     .pub-link:hover {
-      transform: translateX(3px);
-      color: #1d4ed8;
+      background: var(--accent3);
+      color: white;
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 var(--border);
     }
 
-    /* Projects */
+    /* ===== PROJECTS ===== */
     .project-card {
-      background: #fafafa;
-      border-radius: 12px;
+      background: var(--bg-card);
+      border: 3px solid var(--border);
+      box-shadow: var(--pixel-shadow);
       padding: 24px;
       margin-top: 16px;
-      border: 1px solid #eeeeee;
-      transition: all 0.25s ease;
+      transition: all 0.15s;
+      position: relative;
+      overflow: hidden;
     }
     .project-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-      border-color: #e0e0e0;
+      transform: translate(-3px, -3px);
+      box-shadow: 7px 7px 0px var(--border);
+    }
+    .project-card::after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      width: 60px;
+      height: 60px;
+      background: var(--accent);
+      opacity: 0.1;
+      transform: rotate(45deg);
     }
 
     .project-header {
@@ -286,98 +381,111 @@
     }
 
     .project-icon {
-      width: 40px;
-      height: 40px;
-      background: white;
-      border-radius: 8px;
+      width: 48px;
+      height: 48px;
+      background: var(--bg);
+      border: 3px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
-      border: 1px solid #eeeeee;
-      transition: transform 0.2s ease;
-    }
-    .project-card:hover .project-icon {
-      transform: scale(1.02);
+      font-size: 24px;
+      box-shadow: 3px 3px 0 var(--border);
+      flex-shrink: 0;
     }
 
     .project-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #111111;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      color: var(--text);
+      line-height: 1.5;
     }
 
     .project-links {
       display: flex;
-      gap: 16px;
-      margin-top: 12px;
+      gap: 12px;
+      margin-top: 16px;
     }
 
     .project-link {
-      font-size: 13px;
-      font-weight: 500;
-      transition: transform 0.15s ease;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 7px;
+      color: var(--text);
+      text-decoration: none;
+      border: 2px solid var(--border);
+      padding: 6px 10px;
       display: inline-block;
+      box-shadow: 2px 2px 0 var(--border);
+      background: var(--bg);
+      transition: all 0.1s;
     }
     .project-link:hover {
-      transform: translateX(2px);
+      background: var(--accent2);
+      color: white;
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0 var(--border);
     }
 
-    /* Contact */
+    /* ===== CONTACT ===== */
     .contact-item {
       display: flex;
       align-items: center;
       gap: 12px;
       margin-bottom: 12px;
-      font-size: 15px;
-      color: #666666;
-      transition: transform 0.15s ease;
+      font-size: 22px;
+      color: var(--text-dim);
+      transition: transform 0.1s;
     }
     .contact-item:hover {
-      transform: translateX(3px);
+      transform: translateX(4px);
+      color: var(--text);
     }
 
     .contact-icon {
-      width: 20px;
-      color: #999999;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
     }
 
     .social-links {
       display: flex;
-      gap: 16px;
+      gap: 12px;
       margin-top: 24px;
-      margin-bottom: 24px;
     }
 
     .social-link {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid #eeeeee;
-      color: #666666;
+      width: 44px;
+      height: 44px;
+      background: var(--bg-card);
+      border: 3px solid var(--border);
+      box-shadow: 3px 3px 0 var(--border);
+      color: var(--text);
       text-decoration: none;
-      transition: all 0.2s ease;
+      transition: all 0.1s;
     }
-
     .social-link:hover {
-      border-color: #111111;
-      color: #111111;
-      transform: translateY(-3px);
+      background: var(--accent);
+      color: white;
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--border);
+    }
+    .social-link:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--border);
     }
 
-    /* Footer */
+    /* ===== FOOTER ===== */
     footer {
       padding: 40px 0;
-      border-top: 1px solid #eeeeee;
+      border-top: 3px solid var(--border);
       text-align: center;
     }
 
     footer p {
-      font-size: 13px;
-      color: #999999;
+      font-size: 18px;
+      color: var(--text-dim);
       margin: 0;
     }
 
@@ -385,84 +493,95 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 24px;
+      gap: 16px;
       margin-top: 20px;
-      font-size: 12px;
-      color: #aaaaaa;
+      font-size: 16px;
+      color: #999;
     }
     .stats-row span {
-      color: #666666;
-      font-weight: 500;
+      color: var(--text);
+      font-weight: 700;
     }
 
-    /* Responsive */
+    /* ===== MARQUEE / FUN ELEMENTS ===== */
+    .marquee-bar {
+      background: var(--accent);
+      color: white;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 8px;
+      padding: 8px 0;
+      border-bottom: 3px solid var(--border);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-bar span {
+      display: inline-block;
+      animation: marquee 20s linear infinite;
+      padding-left: 100%;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 600px) {
       header {
-        padding: 60px 0 32px;
+        padding: 40px 0 24px;
       }
-
       .profile-section {
         flex-direction: column;
         align-items: center;
         text-align: center;
       }
-
-      .profile-img {
-        width: 100px;
-        height: 100px;
-      }
-
       .profile-info h1 {
-        font-size: 28px;
+        font-size: 14px;
       }
-
       .nav-links {
-        gap: 20px;
-        overflow-x: auto;
-        padding-bottom: 4px;
+        gap: 6px;
       }
-
       nav a {
-        white-space: nowrap;
-        font-size: 13px;
+        font-size: 7px;
+        padding: 6px 8px;
       }
-
       main {
-        padding: 32px 0 60px;
+        padding: 24px 0 60px;
       }
-
       section {
-        margin-bottom: 40px;
+        margin-bottom: 36px;
       }
       .publication:hover {
-        padding-left: 4px;
+        transform: translate(-2px, -2px);
       }
     }
   </style>
   <base target="_blank">
+<base target="_blank">
 </head>
 
 <body>
+  <!-- 趣味跑马灯 -->
+  <div class="marquee-bar">
+    <span>⚠ CAUTION: PHD STUDENT DETECTED ⚠ MAY SPONTANEOUSLY TALK ABOUT RESEARCH ⚠ REVIEWER 2 IS NOT ALLOWED TO APPROACH ⚠</span>
+  </div>
+
   <header>
     <div class="container">
       <div class="profile-section">
-        <img src="avatar.png" alt="Yishen Song" class="profile-img" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?background=dddddd&color=111&name=Y.S.'">
+        <div class="avatar-wrap">
+          <img src="avatar.png" alt="Yishen Song" class="profile-img" onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?background=ff6b35&color=fff&name=Y.S.&size=120&font-size=0.5&length=2&bold=true'">
+          <div class="avatar-badge">LV.99</div>
+        </div>
         <div class="profile-info">
-          <h1>Yishen Song</h1>
+          <h1>YISHEN SONG</h1>
           <p class="title">PhD Student</p>
           <p class="institution">School of Educational Technology, Beijing Normal University</p>
           <div>
-            <a href="Yishen_CV.pdf" class="cv-link" target="_blank" style="margin-right:20px">
-              <span>Download CV</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-              </svg>
+            <a href="Yishen_CV.pdf" class="cv-btn" target="_blank">
+              <span>📄 CV</span>
             </a>
-            <a href="Yishen_CV_ZH.pdf" class="cv-link" target="_blank">
-              <span>Download CV (中文)</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M7 17L17 7M17 7H7M17 7V17"/>
-              </svg>
+            <a href="Yishen_CV_ZH.pdf" class="cv-btn" target="_blank">
+              <span>📄 CV (ZH-CN)</span>
             </a>
           </div>
         </div>
@@ -473,127 +592,121 @@
   <nav>
     <div class="container">
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#about">[ ABOUT ]</a>
+        <a href="#research">[ RESEARCH ]</a>
+        <a href="#publications">[ PAPERS ]</a>
+        <a href="#projects">[ PROJECTS ]</a>
+        <a href="#contact">[ CONTACT ]</a>
       </div>
     </div>
   </nav>
 
   <main class="container">
-    <section id="about">
-      <h2>About</h2>
+    <section id="about" style="margin-top: 40px;">
+      <h2>ABOUT</h2>
       <p>
         I am a PhD student in the School of Educational Technology at Beijing Normal University 
         [<a href="https://cit.bnu.edu.cn/english/" target="_blank">Our Lab</a>]. My research focuses on Artificial Intelligence in Education (AIEd) and Computerized Adaptive Testing (CAT). 
-        Guided by the belief that <em style="font-style: italic; color:#111;">"every child born has innate goodness"</em>, no matter how technology evolves, 
+        Guided by the belief that <em style="font-style: italic; color:var(--accent);">"every child born has innate goodness"</em>, no matter how technology evolves, 
         I believe technology will always be beneficial to education when designed with care.
       </p>
     </section>
 
     <section id="research">
-      <h2>Research Interests</h2>
+      <h2>RESEARCH INTERESTS</h2>
       <ul>
         <li>Automatic Item Generation</li>
-        <li>Knowledge Tracing</li>
         <li>LLM Benchmarking for Educational Purposes</li>
+        <li>Educational Data Mining</li>
       </ul>
     </section>
 
     <section id="publications">
-      <h2>Publications</h2>
+      <h2>PUBLICATIONS</h2>
       <div class="pub-section">
-        
-        <!-- Journal Papers -->
-        <div class="pub-category">Journal papers</div>
-        
+
+        <div class="pub-category">◆ JOURNAL PAPERS</div>
+
         <div class="publication">
           <div class="pub-title">Multi-agent automated item generation based on large language models</div>
           <div class="pub-meta">Yishen Song, Hanya Li, Qinhua Zheng</div>
           <div class="pub-journal">Educational Technology & Society, 2026</div>
-          <a href="https://www.researchgate.net/publication/400748479_Multi-agent_automated_item_generation_based_on_large_language_models" class="pub-link" target="_blank">View Paper →</a>
+          <a href="https://www.researchgate.net/publication/400748479_Multi-agent_automated_item_generation_based_on_large_language_models" class="pub-link" target="_blank">VIEW PAPER →</a>
         </div>
 
         <div class="publication">
           <div class="pub-title">LLM-Simulated Nonequivalent Groups with Anchor Test: A Novel Approach for Test Equating in the Absence of Traditional Anchor Items</div>
           <div class="pub-meta">Junlei Du, Yishen Song, Qinhua Zheng</div>
           <div class="pub-journal">IEEE Transactions on Learning Technologies, 2026</div>
-          <a href="https://doi.org/10.1109/TLT.2026.3661154" class="pub-link" target="_blank">View Paper →</a>
+          <a href="https://doi.org/10.1109/TLT.2026.3661154" class="pub-link" target="_blank">VIEW PAPER →</a>
         </div>
 
         <div class="publication">
           <div class="pub-title">Automatic item generation for educational assessments: a systematic literature review</div>
           <div class="pub-meta">Yishen Song, Junlei Du, Qinhua Zheng</div>
           <div class="pub-journal">Interactive Learning Environments, 2025</div>
-          <a href="https://doi.org/10.1080/10494820.2025.2482588" class="pub-link" target="_blank">View Paper →</a>
+          <a href="https://doi.org/10.1080/10494820.2025.2482588" class="pub-link" target="_blank">VIEW PAPER →</a>
         </div>
 
         <div class="publication">
           <div class="pub-title">Measuring scientific inquiry ability related to hands-on practice: an automated approach based on multimodal data analysis</div>
           <div class="pub-meta">Yishen Song, Liming Guo, Qinhua Zheng</div>
           <div class="pub-journal">Education and Information Technologies, 2025</div>
-          <a href="https://doi.org/10.1007/s10639-024-12991-7" class="pub-link" target="_blank">View Paper →</a>
+          <a href="https://doi.org/10.1007/s10639-024-12991-7" class="pub-link" target="_blank">VIEW PAPER →</a>
         </div>
 
         <div class="publication">
           <div class="pub-title">Automated essay scoring and revising based on open-source large language models</div>
           <div class="pub-meta">Yishen Song, Qianta Zhu, Huaibo Wang, Qinhua Zheng</div>
           <div class="pub-journal">IEEE Transactions on Learning Technologies, 2024</div>
-          <a href="https://doi.org/10.1109/TLT.2024.3396873" class="pub-link" target="_blank">View Paper →</a>
+          <a href="https://doi.org/10.1109/TLT.2024.3396873" class="pub-link" target="_blank">VIEW PAPER →</a>
         </div>
 
-        <!-- Conference Papers -->
-        <div class="pub-category">Conference papers</div>
+        <div class="pub-category">◆ CONFERENCE PAPERS</div>
 
-
-        <!-- NEW: Hallucination-Centric Evaluation (Conference / Preprint) -->
         <div class="publication">
           <div class="pub-title">Can Large Language Models Generate Reliable Test Items? A Hallucination-Centric Evaluation</div>
           <div class="pub-meta">Yishen Song, Qinhua Zheng</div>
           <div class="pub-journal">AERA Annual Meeting, 2026</div>
-          <a href="https://www.researchgate.net/publication/403975916_Can_Large_Language_Models_Generate_Reliable_Test_Items_A_Hallucination-Centric_Evaluation" class="pub-link" target="_blank">View Paper →</a>
+          <a href="https://www.researchgate.net/publication/403975916_Can_Large_Language_Models_Generate_Reliable_Test_Items_A_Hallucination-Centric_Evaluation" class="pub-link" target="_blank">VIEW PAPER →</a>
         </div>
 
-        <!-- NEW: Automated Extraction of Computational Thinking Features -->
         <div class="publication">
           <div class="pub-title">Automated Extraction of Computational Thinking Features in Visual Programming Assessment</div>
           <div class="pub-meta">Yishen Song</div>
           <div class="pub-journal">AERA Annual Meeting, 2026</div>
-          <a href="https://www.researchgate.net/publication/403971410_Automated_Extraction_of_Computational_Thinking_Features_in_Visual_Programming_Assessment" class="pub-link" target="_blank">View Paper →</a>
+          <a href="https://www.researchgate.net/publication/403971410_Automated_Extraction_of_Computational_Thinking_Features_in_Visual_Programming_Assessment" class="pub-link" target="_blank">VIEW PAPER →</a>
         </div>
 
         <div class="publication">
           <div class="pub-title">CoScore: an LLM-Empowered Human-AI Collaborative Text Scoring Rule Generation and Calculation Engine</div>
           <div class="pub-meta">Yishen Song</div>
           <div class="pub-journal">IEEE International Conference on Teaching, Assessment, and Learning for Engineering (TALE), 2025</div>
-          <a href="https://doi.org/10.1109/TALE66047.2025.11346772" class="pub-link" target="_blank">View Paper →</a>
+          <a href="https://doi.org/10.1109/TALE66047.2025.11346772" class="pub-link" target="_blank">VIEW PAPER →</a>
         </div>
 
-        
       </div>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
+      <h2>PROJECTS</h2>
       <div class="project-card">
         <div class="project-header">
           <div class="project-icon">⚡</div>
           <div class="project-title">MixIO</div>
         </div>
-        <p style="font-size: 15px; margin: 0;">
+        <p style="font-size: 22px; margin: 0;">
           An education-first open-source IoT platform. Started in 2020 as my undergraduate "Computer Networks" course project, now serving ~1,000 monthly active users. Widely deployed in Chinese primary and secondary schools for IoT education.
         </p>
         <div class="project-links">
-          <a href="https://gitee.com/mixly2/mixio" class="project-link" target="_blank">Gitee →</a>
-          <a href="https://mixio.mixly.cn" class="project-link" target="_blank">Official Server →</a>
+          <a href="https://gitee.com/mixly2/mixio" class="project-link" target="_blank">GITEE →</a>
+          <a href="https://mixio.mixly.cn" class="project-link" target="_blank">OFFICIAL →</a>
         </div>
       </div>
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
+      <h2>CONTACT</h2>
       <div class="contact-item">
         <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -619,13 +732,13 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 Yishen Song · Last updated Feb 2026</p>
+      <p>© 2026 YISHEN SONG · LAST UPDATED FEB 2026</p>
       <script src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js" defer></script>
       <div class="stats-row">
-        <span>📖 Today's views: <span id="busuanzi_today_pv">loading...</span></span>
-        <span>👥 Today's visitors: <span id="busuanzi_today_uv">loading...</span></span>
-        <span>🌐 Total views: <span id="busuanzi_site_pv">loading...</span></span>
-        <span>✨ Total visitors: <span id="busuanzi_site_uv">loading...</span></span>
+        <span>📖 TODAY: <span id="busuanzi_today_pv">loading...</span></span>
+        <span>👥 VISITORS: <span id="busuanzi_today_uv">loading...</span></span>
+        <span>🌐 TOTAL: <span id="busuanzi_site_pv">loading...</span></span>
+        <span>✨ ALL: <span id="busuanzi_site_uv">loading...</span></span>
       </div>
     </div>
   </footer>
@@ -648,7 +761,7 @@
         }
       });
     });
-    // Simple fallback for busuanzi if values remain empty
+    // Simple fallback for busuanzi
     setTimeout(() => {
       const ids = ['busuanzi_today_pv', 'busuanzi_today_uv', 'busuanzi_site_pv', 'busuanzi_site_uv'];
       ids.forEach(id => {
