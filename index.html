@@ -783,17 +783,9 @@
 </div>
 
 <!-- 不蒜子脚本 (busuanzi) -->
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js" defer></script>
 
 <script>
-  // 优雅降级: busuanzi 显示占位符后备
-  setTimeout(function() {
-    const ids = ['busuanzi_site_pv', 'busuanzi_site_uv', 'busuanzi_today_pv', 'busuanzi_today_uv'];
-    ids.forEach(id => {
-      const el = document.getElementById(id);
-      if (el && (el.innerText === '0' || el.innerText === '')) el.innerText = '—';
-    });
-  }, 2000);
 
   // 平滑滚动 + 移动端避免 sticky 遮挡
   document.querySelectorAll('.nav-links a').forEach(anchor => {
