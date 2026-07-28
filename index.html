@@ -7,7 +7,7 @@
   <meta name="description" content="Personal academic homepage of Yishen Song, PhD Student at Beijing Normal University – AI in Education, Automatic Item Generation, Knowledge Tracing">
   
   <!-- Google Fonts + iOS SF Pro fallback -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Font Awesome 6 (free icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -597,6 +597,7 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="editorial.css">
 </head>
 <body>
 
@@ -623,7 +624,7 @@
       <div class="hero-content">
         <h1>Yishen Song</h1>
         <div class="hero-tag">
-          <span>PhD Student</span>
+          <span>PhD Candidate</span>
           <span class="institution"><i class="fas fa-university" style="margin-right: 6px;"></i> Beijing Normal University</span>
         </div>
         <p style="color: #4a5b7a; max-width: 520px; margin-top: 8px; font-size: 0.95rem;">We choose to go to the moon.</p>
@@ -645,7 +646,7 @@
       <div class="glass-card" style="padding: 24px 28px;">
         <p style="font-size: 0.95rem; line-height: 1.55;">I am a PhD student in the School of Educational Technology at Beijing Normal University 
           (<a href="https://cit.bnu.edu.cn/english/" target="_blank" style="color:#007aff; text-decoration:none;">Our Lab</a>). My research focuses on Artificial Intelligence in Education (AIEd) and Computerized Adaptive Testing (CAT). 
-          Guided by the belief that <strong style="color:#007aff;">“every child born has innate goodness”</strong>, I focus on designing human-centric AI systems that empower learners and teachers, rather than replacing them.
+          Guided by the belief that <strong style="color:#007aff;">“every child born has innate goodness”</strong>, I focus on designing human-centric AI-assisted assessment systems that empower learners and teachers, rather than replacing them.
         </p>
       </div>
     </section>
@@ -736,17 +737,30 @@
     <section id="projects">
       <div class="section-title">
         <i class="fas fa-cubes"></i>
-        <span>Flagship Project</span>
+        <span>Projects</span>
       </div>
-      <div class="project-card">
-        <div class="project-header">
-          <div class="project-icon"><i class="fas fa-microchip"></i></div>
-          <div class="project-title">MixIO</div>
+      <div class="projects-list">
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-microchip"></i></div>
+            <div class="project-title">MixIO</div>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.5; color: #2c3e50;">An education-first open-source IoT platform. Started as an undergraduate "Computer Networks" course project in 2020, now serving ~1,000 monthly active users. Widely deployed in Chinese primary and secondary schools for IoT education.</p>
+          <div class="project-links">
+            <a href="https://gitee.com/mixly2/mixio" class="project-link" target="_blank"><i class="fab fa-git-alt"></i> Gitee</a>
+            <a href="https://mixio.mixly.cn" class="project-link" target="_blank"><i class="fas fa-globe"></i> Official</a>
+          </div>
         </div>
-        <p style="font-size: 0.9rem; line-height: 1.5; color: #2c3e50;">An education-first open-source IoT platform. Started as an undergraduate "Computer Networks" course project in 2020, now serving ~1,000 monthly active users. Widely deployed in Chinese primary and secondary schools for IoT education.</p>
-        <div class="project-links">
-          <a href="https://gitee.com/mixly2/mixio" class="project-link" target="_blank"><i class="fab fa-git-alt"></i> Gitee</a>
-          <a href="https://mixio.mixly.cn" class="project-link" target="_blank"><i class="fas fa-globe"></i> Official</a>
+        <div class="project-card project-card-minimal">
+          <div class="project-header">
+            <div class="project-icon"><i class="fas fa-seedling"></i></div>
+            <div class="project-title">SEED Computational Thinking Assessment</div>
+          </div>
+          <p style="font-size: 0.9rem; line-height: 1.5; color: #2c3e50;">An interactive computational thinking assessment. As part of the SEED platform, serving ~1,000,000 users each year, since 2022.</p>
+          <div class="project-links">
+            <a href="https://seed.bnu.edu.cn/tree/1829063122246434818.html" class="project-link" target="_blank"><i class="fas fa-arrow"></i> Introduction</a>
+            <a href="https://basic.smartedu.cn/AIEducation/list?content_id=b5f762b2-02b1-465a-b482-10ccd41d3805" class="project-link" target="_blank"><i class="fas fa-globe"></i> Try Demo</a>
+          </div>
         </div>
       </div>
     </section>
@@ -772,7 +786,7 @@
   </main>
 
   <footer>
-    <p style="font-size: 0.75rem;">© 2026 Yishen Song — Last updated May 2026</p>
+    <p style="font-size: 0.75rem;">© 2026 Yishen Song — Last updated July 2026</p>
     <div class="stats">
       <span><i class="far fa-eye"></i> Today PV: <span id="busuanzi_today_pv">0</span></span>
       <span><i class="fas fa-users"></i> Today UV: <span id="busuanzi_today_uv">0</span></span>
