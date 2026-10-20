@@ -1,0 +1,133 @@
+% Document class and font size
+\documentclass[a4paper,9pt]{extarticle}
+
+% Packages
+\usepackage[UTF8]{ctex} % 添加中文支持
+\usepackage{geometry} % For page margins
+\geometry{letterpaper, margin=0.60in} % Set paper size and margins
+\usepackage{titlesec} % For section title formatting
+\usepackage{enumitem} % For itemized list formatting
+\usepackage{xurl}
+\usepackage{hyperref} % For hyperlinks
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+
+% Formatting
+\setlist{noitemsep} % Removes item separation
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}[\titlerule] % Section title format
+\titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip} % Section title spacing
+%%%%%%%%%%
+
+% Begin document
+\begin{document}
+
+% Disable page numbers
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead{}
+\fancyhead[L]{\textit{Yishen Song}}
+\fancyhead[R]{\textit{March 2026}}
+\pagestyle{empty} % Remove header from the first page
+
+% Header
+\begin{flushleft}
+\textbf{\LARGE Yishen Song \textit{宋义深}}\\[2pt] % Name
+Ph.D. Student, Beijing Normal University, Beijing, China
+\\ \href{mailto:songyishen@outlook.com}{songyishen@outlook.com} | \href{https://orcid.org/0009-0004-4846-7635}{ORCID: 0009-0004-4846-7635} | \href{http://eason010212.github.io/homepage/}{http://eason0212.com/}
+\end{flushleft}
+
+% Education Section
+\section*{RESEARCH INTERESTS}
+\noindent
+Artificial Intelligence and Educational Measurement, Computerized Adaptive Testing, STEM Education
+
+% Education Section
+\section*{EDUCATION}
+\noindent
+\textbf{University of Pittsburgh}, Pittsburgh, USA \hfill Oct. 2026 – Present  \\ % University name and location
+Visiting Student
+
+\noindent
+\textbf{Beijing Normal University}, Beijing, China \hfill Sept. 2024 – Present  \\ % University name and location
+Ph.D. Student in Internet Education 
+
+\noindent
+\textbf{Beijing Normal University}, Beijing, China \hfill Sept. 2022 – Aug. 2024  \\ % University name and location
+Master Student in Distance Education (transferred to Ph.D. program in Aug. 2024)
+
+\noindent
+\textbf{Beijing Normal University},  Beijing, China \hfill Sept. 2018 – Jul. 2022\\ % University name and location
+Bachelor of Science in Educational Technology  % Degree and GPA
+
+\section*{PUBLICATIONS}
+\noindent
+\textbf{Journal papers (in English)}
+\begin{itemize}
+    \item \textbf{Song, Y.}, Li, H., \& Zheng, Q. (2026). Umbrella review of meta-analyses on the benefits and risks of computerised adaptive testing. \textit{npj Science of Learning}, \url{https://doi.org/10.1038/s41539-026-00460-4}
+    \item \textbf{Song, Y.}, Li, H., \& Zheng, Q. (2026). Multi-agent automated item generation based on large language models. \textit{Educational Technology \& Society}, 29(2), 233–248, \url{https://doi.org/10.30191/ETS.202604_29(2).SP02}
+    \item Du, J., \textbf{Song, Y.}, \& Zheng, Q. (2026). LLM-simulated nonequivalent groups with anchor test: a novel approach for test equating in the absence of traditional anchor items. \textit{IEEE Transactions on Learning Technologies}, 19, 75–86, \url{https://doi.org/10.1109/TLT.2026.3661154}
+    \item \textbf{Song, Y.}, Du, J., \& Zheng, Q. (2025). Automatic item generation for educational assessments: a systematic literature review. \textit{Interactive Learning Environments}, 33(9), 5386-5405, \url{https://doi.org/10.1080/10494820.2025.2482588}
+    \item \textbf{Song, Y.}, Guo, L. \& Zheng, Q. (2025). Measuring scientific inquiry ability related to hands-on practice: an automated approach based on multimodal data analysis. \textit{Education and Information Technologies}, 30, 4381–4411, \url{https://doi.org/10.1007/s10639-024-12991-7}
+    \item \textbf{Song, Y.}, Zhu, Q., Wang, H., \& Zheng, Q. (2024). Automated essay scoring and revising based on open-source large language models. \textit{IEEE Transactions on Learning Technologies}, 17, 1880-1890, \url{https://doi.org/10.1109/TLT.2024.3396873}
+\end{itemize}
+
+\noindent
+\textbf{Journal papers (in Chinese)}
+\begin{itemize}
+    \item 郑勤华, \textbf{宋义深}. (2026). 生成式人工智能在教育评价中的定位与实践——基于“对话”的隐喻视角. \textit{远程教育杂志}, 44(02), 22–29. \url{10.15881/j.cnki.cn33-1304/g4.2026.02.003}
+    \item 郑勤华, \textbf{宋义深}, 李爽. (2026). 中小学生智能素养的表现性评价：工具设计、数据表征与智能分析. \textit{中国电化教育}, (01), 92–98.
+    \item 杜君磊, 郑勤华, \textbf{宋义深}. (2025). 大语言模型在无锚题等值中的应用：以阅读素养测评为例. \textit{武汉大学学报(理学版)}, 71(05), 591–598. \url{https://doi.org/10.14188/j.1671-8836.2024.0088}
+    \item 郑勤华, 刘司卓, \textbf{宋义深}. (2024). 政策视角下综合素质评价的定位与实施路径研究. \textit{中国电化教育}, (12), 81–89.
+    \item \textbf{宋义深}. (2024). 多模态教育数据在教育实证研究中的应用——基于国际实证研究的系统性文献综述. \textit{开放学习研究}, 29(03), 45–52. \url{https://doi.org/10.19605/j.cnki.kfxxyj.2024.03.005}
+    \item 郑勤华, \textbf{宋义深}. (2024). 互联网教育的发展模式研究——基于利益演化博弈的仿真视角. \textit{中国远程教育}, 44(05), 35–50. \url{https://doi.org/10.13541/j.cnki.chinade.2024.05.007}
+    \item \textbf{宋义深}, 冯晓英. (2023). 在线学习失信行为的驱动因素与形成机制研究——基于扎根理论. \textit{电化教育研究}, 44(09), 64–70. \url{https://doi.org/10.13811/j.cnki.eer.2023.09.009}
+    \item 傅骞, \textbf{宋义深}, 郑娅峰. (2023). 面向信息科技教育的物联网平台研究——MixIO物联网平台的设计与实现. \textit{电化教育研究}, 44(05), 99–103+128. \url{https://doi.org/10.13811/j.cnki.eer.2023.05.013}
+\end{itemize}
+
+\noindent
+\textbf{Conference papers}
+\begin{itemize}
+    \item \textbf{Song, Y.}, \& Zheng, Q. (2026). Can large language models generate reliable test items? A hallucination-centric evaluation. \textit{Annual Meeting of the American Educational Research Association (AERA)}, \url{https://doi.org/10.3102/2272212}
+    \item \textbf{Song, Y.} (2026). Automated extraction of computational thinking features in visual programming assessment. \textit{Annual Meeting of the American Educational Research Association (AERA)}, \url{https://doi.org/10.3102/2272922}
+    \item \textbf{Song, Y.} (2025). CoScore: an LLM-empowered human-AI collaborative text scoring rule generation and calculation engine. \textit{IEEE International Conference on Teaching, Assessment, and Learning for Engineering (IEEE TALE)}, \url{https://doi.org/10.1109/TALE66047.2025.11346772}
+\end{itemize}
+
+% Projects Section
+\section*{PROJECTS}
+\noindent
+\textbf{MixIO: An education-first open-source IoT platform} \hfill Beijing, China\\ % Project name and location
+\textit{Main Contributor} \hfill Aug. 2020 – Present % Project link and duration
+
+\begin{itemize}
+    \item Developed the front-end and back-end of an IoT Server for K-12 IT education.
+    \item Maintained an open source repository: \url{https://gitee.com/mixly2/mixio}
+    \item The official server has around 1,000 active users per month, supporting students in building their own IoT Apps in a low-code manner: \url{https://mixio.mixly.cn/}
+\end{itemize}
+
+% Experience Section
+\section*{EXPERIENCE}
+\noindent
+\textbf{Intern Information Technology Teacher} \hfill Beijing, China\\ % Position name and location
+\textit{Beijing Xicheng Foreign Languages School (BFLS)} \hfill Oct. 2021 – Dec. 2021 % School and duration
+
+\begin{itemize}
+    \item Taught Python programming to first-year high school students.
+    \item Designed teaching activities and produced multimedia teaching materials.
+\end{itemize}
+
+\section*{AWARDS}
+\begin{itemize}
+    \item \textbf{National Scholarship for Doctoral Students of China} \hfill Dec. 2024 \\
+          \hfill Ministry of Education, China
+    \item \textbf{National Scholarship for Undergraduate Students of China} \hfill Dec. 2021 \\
+          \hfill Ministry of Education, China
+\end{itemize}
+
+\section*{SKILLS}
+\begin{itemize}
+    \item \textbf{IELTS (Academic): 7.5} (Listening: 8.0, Reading: 8.5, Writing: 6.5, Speaking: 6.0)
+    \item Python (proficient), JavaScript (proficient), R (familiar), Stata (familiar)
+\end{itemize}
+
+% End document
+\end{document}
