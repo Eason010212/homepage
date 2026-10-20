@@ -1,0 +1,7 @@
+﻿# LaTeX build artifacts in the CV source folders
+# (the compiled PDFs served by the site live in the repo root)
+Yishen_CV/main.pdf
+Yishen_CV_ZH_CN/main.pdf
+*.aux
+*.log
+*.out
